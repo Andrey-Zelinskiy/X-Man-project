@@ -17,3 +17,6 @@ IDE: visual Studio code;
 
 ### Ссылка на репозиторий с проектом
 https://github.com/Andrey-Zelinskiy/X-Man-project
+
+### Ссылка на Trello
+https://trello.com/b/sWJu2BGa/x-men-project
