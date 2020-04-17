@@ -1,47 +1,58 @@
+
 import telebot
 from telebot import types
 import apiai
 import json
+import sqlite3 as sql
+import pyowm
+import PROJECT as base_data
 
+bot = telebot.TeleBot('1005384316:AAE9RD5AeBFM_-Fg1V8AXKP1JFraODvjl6A')
+# owm = pyowm.OWM("47484771ad5c6cec2474c59240344819", language='ru')
 
-# class Person:
-#     def __init__(self, id, trup):
-#         self.__id = id
-#         self.__trup = trup
+rows = base_data.out_data()
+for row in rows:
+    name = str(row[0]) + ".png"
+    if row[2] == "False":
+        continue
+    new_file = open(name, "wb")
+    data = row[1]
+    new_file.write(data)
 
-#     @property
-#     def id(self):
-#         return self.__id, self.__trup
-
-
-bot = telebot.TeleBot('973098900:AAEOGKTQi6EgaDLpyjm3D_0YsVdcQwXhgMw')
 
 mark = types.ReplyKeyboardMarkup(True, True)
 mark.row_width
 mark.row('Давай поговорим')
-mark.row('Потуши свет')
+mark.row('Какая погода?')
 
 
 keybord2 = types.ReplyKeyboardMarkup(True, True)
 keybord2.row('Закончить беседу')
 
-list_person = dict()
-
 
 @bot.message_handler(commands=["start"])
 def start(mes):
-    list_person[mes.chat.id] = False
+    base_data.input_base(mes.chat.id, False, "photo", False)
     bot.send_message(
-        mes.chat.id, "Привет это чат бот для додиков, в данный момент бот находиться в разработке", reply_markup=mark)
-    print(mes.from_user.id)
+        mes.chat.id, "Привет это чат бот в данный момент бот находиться в разработке, для полной работы отправьте мне вашу фотографию", reply_markup=mark)
+
+
+@bot.message_handler(content_types=["photo"])
+def photo(mes):
+    file_info = bot.get_file(mes.photo[len(mes.photo)-1].file_id)
+    donwload_file = bot.download_file(file_info.file_path)
+    binar = sql.Binary(donwload_file)
+    base_data.insert_photo(mes.chat.id, binar)
+    bot.reply_to(mes, "Спасибо за фото")
 
 
 @bot.message_handler(content_types=["text"])
 def call(mes):
-    if list_person[mes.chat.id]:
+    if base_data.out_flag(mes.chat.id) == "True":
         if mes.text.lower() == "закончить беседу":
-            list_person[mes.chat.id] = False
-            bot.send_message(mes.chat.id, "Ну ладно,поговрим потом.")
+            base_data.flag_false(mes.chat.id)
+            bot.send_message(
+                mes.chat.id, "Ну ладно,поговрим потом.", reply_markup=mark)
         else:
             request = apiai.ApiAI(
                 '2c0a2c59f7b546e08504ab43b013a8e8').text_request()
@@ -56,11 +67,19 @@ def call(mes):
             else:
                 bot.send_message(mes.chat.id, "Я вас не понял")
     elif mes.text.lower() == "давай поговорим":
-        list_person[mes.chat.id] = True
+        base_data.flag_true(mes.chat.id)
         bot.send_sticker(
             mes.chat.id, 'CAADAgADSgkAAnlc4glshq449fyDqBYE', reply_markup=keybord2)
     else:
         bot.send_message(mes.chat.id, mes.text)
+        # observation = owm.weather_at_place(mes.text)
+        # w = observation.get_weather()
+        # temp = w.get_teperature('celsius')['temp']
+
+        # answer = f"В городе {mes.text} сейчас {w.get_detailed_status()} \n"
+        # answer += f"Температура в районе {round(temp)} градусов\n\n"
+
+        # bor.send_message(mes.chat.id, answer)
 
 
 bot.polling()
