@@ -63,6 +63,14 @@ def out_data():
     cur.close()
     return row
 
+
+def out_photo_flag(id):
+    con, cur = open_bd()
+    cur.execute(f"SELECT photo_flag FROM BD WHERE id = '{id}' ")
+    row = cur.fetchall()[0]
+    cur.close()
+    return row[0]
+
 # def out_photo(id):
 #     con, cur = open_bd()
 #     cur.execute(f"SELECT * FROM BD WHERE WHERE id = '{id}'")
