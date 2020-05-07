@@ -1,6 +1,6 @@
 # Непонятный / нечитабельный код
 ## Код в принципе читабельный
-![Image alt](https://github.com/Daniil-Lukashchik/Chat-program/blob/master/%D0%A7%D0%B8%D1%82%D0%B0%D0%B1%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D1%8C.png)
+![Image alt](https://github.com/Andrey-Zelinskiy/X-Man-project/blob/master/Read_Cod.png)
 # Дублирующийся код
 ![Image alt](https://github.com/Daniil-Lukashchik/Chat-program/blob/master/%D0%9F%D0%BE%D0%B2%D1%82%D0%BE%D1%80.png)
 # Отсутствие автоматизации
