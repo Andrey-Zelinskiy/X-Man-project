@@ -2,16 +2,16 @@
 ## Код в принципе читабельный
 ![Image alt](https://github.com/Andrey-Zelinskiy/X-Man-project/blob/master/Read_Cod.png)
 # Дублирующийся код
-![Image alt](https://github.com/Daniil-Lukashchik/Chat-program/blob/master/%D0%9F%D0%BE%D0%B2%D1%82%D0%BE%D1%80.png)
+![Image alt](https://github.com/Andrey-Zelinskiy/X-Man-project/blob/master/Dubl.png)
 # Отсутствие автоматизации
 ## Отсутствие тестов, но есть некоторые проверки
-![Image alt](https://github.com/Daniil-Lukashchik/Chat-program/blob/master/%D0%9F%D1%80%D0%BE%D0%B2%D0%B5%D1%80%D0%BA%D0%B8.png)
+![Image alt]https://github.com/Andrey-Zelinskiy/X-Man-project/blob/master/autom.png)
 # Запутанная архитектура и ненужные сложные зависимости
 ## Понятная архитектура
-![Image alt](https://github.com/Daniil-Lukashchik/Chat-program/blob/master/%D0%9F%D0%BE%D0%BD%D1%8F%D1%82%D0%BD%D0%BE%D1%81%D1%82%D1%8C.png)
+![Image alt](https://github.com/Andrey-Zelinskiy/X-Man-project/blob/master/norn.png)
 # Медленные / неэффективные средства
 ## Вполне возможно есть более эффективные средства, но выбор пал на данную библиотеку для определения погоды.
-![Image alt](https://github.com/Daniil-Lukashchik/Chat-program/blob/master/%D0%9D%D0%B5%D1%8D%D1%84%D1%84%D0%B5%D0%BA%D1%82%D0%B8%D0%B2%D0%BD%D0%BE%D1%81%D1%82%D1%8C.png)
+![Image alt](https://github.com/Andrey-Zelinskiy/X-Man-project/blob/master/bibl.png)
 # Незакоммиченый код / долгоживущие ветки
 ## Код нигде не закоммичен
 # Отсутствие / несоответствие технической документации
