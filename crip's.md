@@ -5,7 +5,7 @@
 ![Image alt](https://github.com/Andrey-Zelinskiy/X-Man-project/blob/master/Dubl.png)
 # Отсутствие автоматизации
 ## Отсутствие тестов, но есть некоторые проверки
-![Image alt]https://github.com/Andrey-Zelinskiy/X-Man-project/blob/master/autom.png)
+![Image alt](https://github.com/Andrey-Zelinskiy/X-Man-project/blob/master/autom.png)
 # Запутанная архитектура и ненужные сложные зависимости
 ## Понятная архитектура
 ![Image alt](https://github.com/Andrey-Zelinskiy/X-Man-project/blob/master/norn.png)
